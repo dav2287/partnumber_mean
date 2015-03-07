@@ -9,7 +9,8 @@ angular.module('parts').controller('PartsController', ['$scope', '$stateParams',
 		$scope.create = function() {
 			// Create new Part object
 			var part = new Parts ({
-				name: this.name
+				description: this.description,
+				category: this.category
 			});
 
 			// Redirect after save

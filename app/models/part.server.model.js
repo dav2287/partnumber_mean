@@ -22,6 +22,10 @@ var PartSchema = new Schema({
 		required: 'Please fill Part category'
 	},
 
+	part_number: {
+		type: Number
+	},
+
 	created: {
 		type: Date,
 		default: Date.now

@@ -15,6 +15,22 @@ exports.create = function(req, res) {
 	var part = new Part(req.body);
 	part.user = req.user;
 
+	// Smart number assignation logic
+	switch(part.category) {
+		case "custom":
+			part.part_number = 900;
+			break;
+		case "assembly":
+			part.part_number = 600;
+			break;
+		case "fastener":
+			part.part_number = 400;
+			break;
+		default:
+			part.part_number = 100;
+			break;
+	}
+
 	part.save(function(err) {
 		if (err) {
 			return res.status(400).send({
